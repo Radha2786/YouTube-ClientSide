@@ -22,6 +22,9 @@ const formSchema = z.object({
   password: z.string().min(8 , {
     message: "Password sholud be of 8 characters"
   }),
+  fullName: z.string().min(8 , {
+    message: "fullName sholud be of 8 characters"
+  }),
   email: z.string().email().min(20 , {
     message: "Invalid email"
   })
@@ -35,6 +38,7 @@ const LoginForm = () => {
       username: "",
       password: "",
       email:"",
+      fullName:"",
     },
   });
 
@@ -63,9 +67,6 @@ const LoginForm = () => {
               <FormControl>
                 <Input placeholder="Enter Name" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
