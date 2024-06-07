@@ -40,7 +40,7 @@ const registerService = async (values: RegisterUserData)=>{
 
         const response = await axios.post(`${baseUrl}/users/register`, formData)
         console.log("response of registerUser is", response);
-        return response;
+        return response.data;
 
     } catch(error:any){
         throw new Error("Error while registering" + error.message);

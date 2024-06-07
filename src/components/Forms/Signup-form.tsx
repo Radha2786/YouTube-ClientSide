@@ -62,12 +62,18 @@ const Signupform = () => {
     setLoading(true)
     try{
       const res = await registerService(values);
-      const {user, accessToken , refreshToken} = res;
+      const accessToken = res.accessToken;
+      const refreshToken = res.refreshToken;
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('refreshToken', refreshToken);
-      login(user);
+      login(res.user);
       navigate('/');
-      // console.log("response is",res);
+      // const {user, accessToken , refreshToken} = res;
+      // localStorage.setItem('accessToken', accessToken);
+      // localStorage.setItem('refreshToken', refreshToken);
+      // login(user);
+      // navigate('/');
+      console.log("response is",res);
     } catch(error:any){
       console.log("error is",error);
       setLoading(false);
