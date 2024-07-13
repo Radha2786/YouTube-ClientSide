@@ -1,6 +1,9 @@
 import axios from "axios";
 
 const baseUrl = import.meta.env.VITE_BACKEND_URL;
+import { UseDispatch, useSelector } from "react-redux";
+import useAuth from "@/hooks/useAuth";
+
 
 const loginService = async (username: string , email : string , password:string) => {
     try {
@@ -17,6 +20,8 @@ const loginService = async (username: string , email : string , password:string)
     }
 };
 
+
+
 interface RegisterUserData {
     username: string;
     email: string;
@@ -24,7 +29,6 @@ interface RegisterUserData {
     fullName: string;
     avatar?: File;
     coverImage: File;
-
 }
 
 const registerService = async (values: RegisterUserData)=>{
@@ -59,6 +63,8 @@ const logoutService = async () => {
         throw new Error("Error while logout" + error.message);
     }
 }
+
+
 
 
 

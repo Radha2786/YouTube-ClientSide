@@ -10,20 +10,27 @@ import {
 } from '../features/authSlice.ts';
 
 
+interface Userdata {
+    username:string,
+    email: string;
+    password: string;
+    fullName: string;
+    avatar?: File;
+    coverImage: File;
+  }
 interface UseAuth{
     isAuthenticated: boolean;
-    userData: Object | null;
-    login: (userData: Object) => void;
+    userData: Userdata | null,
+    login: (userData: Userdata) => void;
     logout : () => void;
 }
 
-
 const useAuth = (): UseAuth => {
-    const {status,userData} = useSelector((state: RootState) => state.auth);
     const dispatch = useDispatch();
+    const {status,userData} = useSelector((state: RootState) => state.auth);
 
-    const login = (userData: Object) => {
-        dispatch(loginAction({status:true,userData}))
+    const login = (userData: Userdata) => {
+        dispatch(loginAction(userData))
     }
     const logout = () => {
         dispatch(logoutAction());

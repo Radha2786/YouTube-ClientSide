@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import {logoutService} from '../../services/user.service.tsx'
+import {logoutService} from '../../services/user.service.ts'
 import {logout} from '../../features/authSlice'
 import { Button } from "@/components/ui/button"
 const LogoutBtn = () => {
