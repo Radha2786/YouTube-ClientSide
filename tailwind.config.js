@@ -1,3 +1,5 @@
+import { text } from 'stream/consumers'
+import colors from 'tailwindcss/colors' // https://tailwindcss.com/docs/customizing-colors#color-palette
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -28,7 +30,14 @@ module.exports = {
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
+          // DEFAULT: "hsl(var(--secondary))",
+          DEFAULT: colors.neutral[200],
+          // hover: colors.neutral[300],
+          hover:colors.slate[600],
+          border: colors.neutral[400],
+          text: colors.neutral[500],
+          dark: colors.neutral[800],
+          ["dark-hover"]: colors.neutral[900],
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
